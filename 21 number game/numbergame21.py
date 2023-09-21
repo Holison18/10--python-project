@@ -1,3 +1,8 @@
+# This a 21 number game written in the python programming language.
+# The game is played between a player and a computer.
+# The player and the computer take turns to choose a number between 1 and 10.
+# The player who reaches 21 first wins the game.
+
 import random
 
 target = 21
@@ -5,14 +10,17 @@ totalMoves = 5
 player1Moves = []
 computerMoves = []
 
+# a toggle_player function to toggle between player 1 and computer
 def toggle_player(current_player):
     return 3 - current_player 
 
+# declare a function for computer's move
 def computer():
     print("Computer's turn...")
     move = random.randint(1, min(10, target - sum(computerMoves))) # put a constraint so that computer doesn't exceed the target
     computerMoves.append(move)
 
+# declare a function for player 1's move
 def player1():
     print("Player 1's turn")
     print("Select a number between 1 to 10")
@@ -22,6 +30,7 @@ def player1():
     else:
         player1Moves.append(move)
 
+# declare a function to start the game
 def start():
     print("\n\t\t\t21 number game")
     print("\t\t\t--------------")
