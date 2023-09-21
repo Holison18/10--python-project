@@ -6,8 +6,8 @@ import random
 # declare variables
 target = 21
 totalMoves = 5
-player1total = 0
-computerTotal = 0
+
+
 
 # declare a function randomSelectPlayer which will randomly select a player when the game begins
 def randomSelectPlayer():
@@ -15,22 +15,19 @@ def randomSelectPlayer():
     number = random.choice(arr)
     return arr
 
+# set the computerTotal to 0
+computerTotal = 0
+
 # When the computer is selected as the one to make a move, this function is called
-def computer():
-    print("Computer's turn.....")
-    move = random.randint(1,10)
-    # add move to the computerTotal
-    computerTotal += move
-    print(f"Computer selected {move}")
-    print(f"Computer total is {computerTotal}")
+def computer(move):
+    pass
+
+# set the player1total to 0
+player1total = 0
 
 # player1 function is called when player1 is selected randomly
-def player1():
-    print("Player 1's turn.....")
-    print("Select a number between 1 and 10")
-    move = int(input())
-    # add move to the player1total
-    player1total += move
+def player1(move):
+    pass
 
 
 def start():
@@ -39,9 +36,18 @@ def start():
     print("Making a choice of who will start first....")
     # randomly select a player
     player = randomSelectPlayer()
-    if player == 1:
-        print("Player 1 will start first")
-        player1()
-    else:
-        print("Computer will start first")
-        computer()
+    # continue the game until the total moves are reached and total of both players is less than 21
+    while True:
+        if player == 1:
+            print("Player 1's turn")
+            player1()
+            player = 2
+        else:
+            computer()
+            print("Computer's turn")
+            player = 1
+        if player1total >= 21 or computerTotal >= 21:
+            break
+
+
+start()
