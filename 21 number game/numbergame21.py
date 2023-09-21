@@ -1,34 +1,31 @@
-# This is a simple 21 number game using python programming language.
-# This game is played between the play and the computer
-# The player can choose to start first or second
 import random
 
 # declare variables
 target = 21
 totalMoves = 5
-
-
+# initialize player1total and computerTotal to 0
+player1Moves = []
+computerMoves = []
 
 # declare a function randomSelectPlayer which will randomly select a player when the game begins
 def randomSelectPlayer():
-    arr = [1,2]
+    arr = [1, 2]
     number = random.choice(arr)
-    return arr
-
-# set the computerTotal to 0
-computerTotal = 0
+    return number
 
 # When the computer is selected as the one to make a move, this function is called
-def computer(move):
-    pass
+def computer():
+    print("Computer's turn...")
+    move = random.randint(1, 10)
+    computerMoves.append(move)  # add the randomly selected move to the computer's total moves
 
-# set the player1total to 0
-player1total = 0
 
 # player1 function is called when player1 is selected randomly
-def player1(move):
-    pass
-
+def player1():
+    print("Prayer 1's turn")
+    print("Select a number between 1 to 10")
+    move = int(input(">> "))
+    player1Moves.append(move)
 
 def start():
     print(f"\n\t\t\t21 number game")
@@ -39,15 +36,13 @@ def start():
     # continue the game until the total moves are reached and total of both players is less than 21
     while True:
         if player == 1:
-            print("Player 1's turn")
-            player1()
-            player = 2
-        else:
-            computer()
-            print("Computer's turn")
-            player = 1
-        if player1total >= 21 or computerTotal >= 21:
-            break
-
+            movesMade = 0
+            # check if player1 has reached the target
+            if player1Moves == 21:
+                print("Player1 wins")
+                break
+            elif sum(player1Moves) < 21 and movesMade < totalMoves:  # if player one has not reached the target and still has moves, then he can play
+                player()
+                movesMade += 1
 
 start()
