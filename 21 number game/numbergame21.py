@@ -42,7 +42,22 @@ def start():
                 print("Player1 wins")
                 break
             elif sum(player1Moves) < 21 and movesMade < totalMoves:  # if player one has not reached the target and still has moves, then he can play
-                player()
+                player1()
                 movesMade += 1
-
+                player = 2
+            else:
+                print("Player1 lost")
+                break
+        elif player == 2:
+            movesMade = 0
+            if sum(computerMoves) == 21:
+                print("Computer wins")
+                break
+            elif sum(computerMoves) < 21 and movesMade < totalMoves:
+                computer()
+                movesMade += 1
+                player = 1
+            else:
+                print("Computer lost")
+                break
 start()
