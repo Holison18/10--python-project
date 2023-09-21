@@ -1,63 +1,68 @@
 import random
 
-# declare variables
 target = 21
 totalMoves = 5
-# initialize player1total and computerTotal to 0
 player1Moves = []
 computerMoves = []
 
-# declare a function randomSelectPlayer which will randomly select a player when the game begins
-def randomSelectPlayer():
-    arr = [1, 2]
-    number = random.choice(arr)
-    return number
+def toggle_player(current_player):
+    return 3 - current_player 
 
-# When the computer is selected as the one to make a move, this function is called
 def computer():
     print("Computer's turn...")
-    move = random.randint(1, 10)
-    computerMoves.append(move)  # add the randomly selected move to the computer's total moves
+    move = random.randint(1, min(10, target - sum(computerMoves)))
+    computerMoves.append(move)
 
-
-# player1 function is called when player1 is selected randomly
 def player1():
-    print("Prayer 1's turn")
+    print("Player 1's turn")
     print("Select a number between 1 to 10")
     move = int(input(">> "))
-    player1Moves.append(move)
+    if move < 1 or move > 10:
+        print("Invalid input. Please choose a number between 1 and 10.")
+    else:
+        player1Moves.append(move)
 
 def start():
-    print(f"\n\t\t\t21 number game")
-    print(f"\t\t\t--------------")
-    print("Making a choice of who will start first....")
-    # randomly select a player
-    player = randomSelectPlayer()
-    # continue the game until the total moves are reached and total of both players is less than 21
+    print("\n\t\t\t21 number game")
+    print("\t\t\t--------------")
+    print(f"\n\t\t\tTarget: {target}\n\t\t\tTotal moves: {totalMoves}\n")
+    print("\t\t\t1. Player 1\n\t\t\t2. Computer\n")  
+    print("\t\t\tWho will start the game?\n")
+    print("\t\t\tEnter 1 or 2\n")
+    current_player = int(input(">> "))
+
     while True:
-        if player == 1:
-            movesMade = 0
-            # check if player1 has reached the target
-            if player1Moves == 21:
-                print("Player1 wins")
-                break
-            elif sum(player1Moves) < 21 and movesMade < totalMoves:  # if player one has not reached the target and still has moves, then he can play
-                player1()
-                movesMade += 1
-                player = 2
+        print(f"Player 1 moves: {player1Moves} = {sum(player1Moves)}")
+        print(f"Computer moves: {computerMoves} = {sum(computerMoves)}")
+
+        if (sum(player1Moves) >= target) or (sum(computerMoves) >= target):
+            if sum(player1Moves) > sum(computerMoves):
+                print("Player 1 wins")
             else:
-                print("Player1 lost")
+                print("Computer wins")
+            break
+
+        if current_player == 1:
+            movesMade = len(player1Moves)  # Count player1's moves
+            if sum(player1Moves) >= target:
+                print("Player 1 wins")
                 break
-        elif player == 2:
-            movesMade = 0
-            if sum(computerMoves) == 21:
+            elif movesMade < totalMoves:
+                player1()
+            else:
+                print("Out of moves")
+                break
+            current_player = toggle_player(current_player)  # Toggle player here
+        elif current_player == 2:
+            movesMade = len(computerMoves)  # Count computer's moves
+            if sum(computerMoves) >= target:
                 print("Computer wins")
                 break
-            elif sum(computerMoves) < 21 and movesMade < totalMoves:
+            elif movesMade < totalMoves:
                 computer()
-                movesMade += 1
-                player = 1
             else:
-                print("Computer lost")
+                print("Out of moves")
                 break
+            current_player = toggle_player(current_player) # Toggle player here
+
 start()
