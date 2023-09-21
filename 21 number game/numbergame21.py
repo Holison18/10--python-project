@@ -24,11 +24,16 @@ def computer():
 def player1():
     print("Player 1's turn")
     print("Select a number between 1 to 10")
-    move = int(input(">> "))
-    if move < 1 or move > 10:
-        print("Invalid input. Please choose a number between 1 and 10.")
-    else:
-        player1Moves.append(move)
+    while True:
+        try:
+            move = int(input(">> "))
+            if move < 1 or move > 10:
+                print("Invalid input. Please choose a number between 1 and 10.")
+            else:
+                player1Moves.append(move)
+                break
+        except ValueError:
+            print("Invalid input. Please choose a number between 1 and 10.")
 
 # declare a function to start the game
 def start():
