@@ -10,7 +10,7 @@ def toggle_player(current_player):
 
 def computer():
     print("Computer's turn...")
-    move = random.randint(1, min(10, target - sum(computerMoves)))
+    move = random.randint(1, min(10, target - sum(computerMoves))) # put a constraint so that computer doesn't exceed the target
     computerMoves.append(move)
 
 def player1():
@@ -32,8 +32,8 @@ def start():
     current_player = int(input(">> "))
 
     while True:
-        print(f"Player 1 moves: {player1Moves} = {sum(player1Moves)}")
-        print(f"Computer moves: {computerMoves} = {sum(computerMoves)}")
+        print(f"Player 1 total moves: {sum(player1Moves)}")
+        print(f"Computer total moves: {sum(computerMoves)}")
 
         if (sum(player1Moves) >= target) or (sum(computerMoves) >= target):
             if sum(player1Moves) > sum(computerMoves):
