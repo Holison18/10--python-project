@@ -18,10 +18,18 @@ def randomSelectPlayer():
 # When the computer is selected as the one to make a move, this function is called
 def computer():
     print("Computer's turn.....")
+    move = random.randint(1,4)
+    # add move to the computerTotal
+    computerTotal += move
+    print(f"Computer selected {move}")
+    print(f"Computer total is {computerTotal}")
 
 # player1 function is called when player1 is selected randomly
 def player1():
-    pass
+    print("Player 1's turn.....")
+    print("Press any key to make a move")
+    input()
+
 
 def start():
     print(f"\n\t\t\t21 number game")
