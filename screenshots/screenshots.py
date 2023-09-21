@@ -1,10 +1,13 @@
-import pyscreenshot as pyscr
+from PIL import Image
+import pyscreenshot
+
+
 
 # grab image
-image  = pyscr.grab()
+img  = pyscreenshot.grab()
 
 # display the captured screenshot
-image.show()
+img.show()
 
 # to save the screenshot
-imgae.save("screenshot.png")
+img.save("screenshot.png")
