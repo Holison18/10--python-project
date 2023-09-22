@@ -13,3 +13,16 @@ def loadRSS():
     '''
     # create an HTTP request response object
     response = requests.get(RSS_FEED_URL)
+
+    # return the content of the response
+    return response.content
+
+# create a function to parse the XML format of the RSS
+def parseXML(rss):
+    # create an element tree root object
+    root = ET.fromstring(rss)
+
+    # create an empty list for newsitems
+    newsitem = []
+
+    
