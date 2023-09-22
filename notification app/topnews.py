@@ -47,3 +47,7 @@ def topStories():
 
     # assign our rss loader function to rss
     rss = loadRSS()
+
+    # parse XML
+    newsitems = parseXML(rss)
+    return newsitems
