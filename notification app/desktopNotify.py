@@ -16,3 +16,12 @@ notification = notify2.Notification(None,icon = ICON_PATH)
 
 # set urgency
 notification.set_urgency(notify2.URGENCY_NORMAL)
+
+# set timeot for notification
+notification.set_timeout(5000)
+
+# iterate over newsitems and update newsitems
+for newsitem in newsitems:
+    
+    # update notification data for notification object
+    notification.update(newsitem['title'],newsitem['description'])
