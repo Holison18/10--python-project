@@ -1,0 +1,41 @@
+# 21 Number Game
+
+This is a simple implementation of the 21 Number Game in Python. The game is played between a player and a computer, where both take turns selecting a number between 1 and 10. The goal of the game is to be the first to reach a total sum of 21 without exceeding it.
+
+## How to Play
+
+1. Run the script in your Python environment.
+
+2. You will be prompted to choose who starts the game, either Player 1 or the Computer.
+
+3. Player 1 and the Computer take turns making their moves.
+
+4. Player 1 enters a number between 1 and 10 when it's their turn.
+
+5. The Computer selects a number randomly between 1 and 10, taking care not to exceed the target.
+
+6. The game continues until one of the players reaches a total sum of 21 or until both players run out of moves.
+
+7. The player who reaches 21 first is declared the winner.
+
+## Game Rules
+
+- Each player has a limited number of moves (defined by `totalMoves`).
+- The Computer makes random moves with the constraint of not exceeding the target.
+- Player 1 must enter a valid number between 1 and 10.
+- The game ends when one of the players reaches a total sum of 21 or when both players run out of moves.
+
+## Code Structure
+
+- `toggle_player(current_player)`: A function to toggle between Player 1 and the Computer.
+- `computer()`: Function to simulate the Computer's move.
+- `player1()`: Function to get input from Player 1.
+- `start()`: Function to initialize and control the game.
+
+## Dependencies
+
+The game uses the `random` module for generating random numbers.
+
+## Enjoy the Game!
+
+Have fun playing the 21 Number Game and see if you can outsmart the Computer to reach 21 before it does!
