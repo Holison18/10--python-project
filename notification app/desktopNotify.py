@@ -11,3 +11,8 @@ newsitems = topStories()
 # Initialize the d-bus connection
 notify2.init("News Notification App")
 
+# create notification object
+notification = notify2.Notification(None,icon = ICON_PATH)
+
+# set urgency
+notification.set_urgency(notify2.URGENCY_NORMAL)
