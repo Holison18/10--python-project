@@ -25,4 +25,25 @@ def parseXML(rss):
     # create an empty list for newsitems
     newsitem = []
 
-    
+    # iterate news items
+    for item in root.findall('./channel/item'):
+        news = {}
+
+        # iterate child element
+        for child in item:
+
+            # special checking for namespace object content.media
+            if child.tag == '{http://search.yahoo.com/mrss/}content':
+                news['media'] = child.attrib['url']
+            else:
+                news[child.tag] = child.text.encode('utf8')
+        newsitem.append(news)
+
+    #return news item list
+    return newsitem
+
+# define a topstories function to generate and return news items
+def topStories():
+
+    # assign our rss loader function to rss
+    rss = loadRSS()
