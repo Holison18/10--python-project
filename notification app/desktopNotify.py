@@ -22,6 +22,12 @@ notification.set_timeout(5000)
 
 # iterate over newsitems and update newsitems
 for newsitem in newsitems:
-    
+
     # update notification data for notification object
     notification.update(newsitem['title'],newsitem['description'])
+
+    # show notification
+    notification.show()
+
+    # a short delay
+    time.sleep(15)
