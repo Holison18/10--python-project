@@ -138,3 +138,70 @@ def track(no_of_days,row_num,b):
             mailStudent(listofLack, msg1)  # mail to students
             staff_id = staff_mail  
             staffMail(staff_id, msg2)  # mail to staff
+
+# define a start function which starts the program
+def start():
+    while True:
+        try:
+            print("\n\t\t\tAttendance Tracker\n")
+            print("Enter the subject number to track attendance")
+            print("1. COE 354")
+            print("2. COE 321")
+            print("3. COE 356")
+            print("4. Exit")
+            choice = int(input("Enter your choice: "))
+            
+            # Check if choice is valid (should be between 1 and 4)
+            if 1 <= choice <= 4:
+                # Input the number of absentees for that subject
+                no_of_absentees = int(input('Number of absentees: '))
+            
+                if no_of_absentees > 1:
+                    # If there are multiple absentees, input their roll numbers separated by spaces
+                    x = list(map(int, input('Enter roll nos separated by spaces: ').split()))
+                else:
+                    # If there's only one absentee, input their roll number
+                    x = [int(input('Enter roll no: '))]
+            
+                # Lists to hold row numbers of the students in Excel sheet and the total number of leaves taken
+                row_num = []
+                no_of_days = []
+            
+                for student in x:
+                    for i in range(2, row+1):
+                        if choice == 1:
+                            if sheet.cell(row=i, column=1).value == student:
+                                m = sheet.cell(row=i, column=3).value
+                                m += 1
+                                sheet.cell(row=i, column=3).value = m
+                                savefile()
+                                no_of_days.append(m)
+                                row_num.append(i)
+                        elif choice == 2:
+                            if sheet.cell(row=i, column=1).value == student:
+                                m = sheet.cell(row=i, column=4).value
+                                m += 1
+                                sheet.cell(row=i, column=4).value = m
+                                no_of_days.append(m)
+                                row_num.append(i)
+                        elif choice == 3:
+                            if sheet.cell(row=i, column=1).value == student:
+                                m = sheet.cell(row=i, column=5).value
+                                m += 1
+                                sheet.cell(row=i, column=5).value = m
+                                row_num.append(i)
+                                no_of_days.append(m)
+            
+                # Call the track function with the collected data
+                track(no_of_days, row_num, choice)
+            elif choice == 4:
+                # Exit the program if choice is 4
+                print("Exiting the program.")
+                break
+            else:
+                print("Invalid choice! Please select a valid option (1-4).")
+        except ValueError:
+            print("Invalid input! Please enter a valid choice.")
+
+if __name__ == '__main__':
+    start()
