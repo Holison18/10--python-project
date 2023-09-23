@@ -1,5 +1,3 @@
-Certainly! Here's a template for a README.md file that you can use for your GitHub repository to document your code:
-
 ```markdown
 # Attendance Tracker
 
@@ -31,13 +29,13 @@ Before you begin, ensure you have met the following requirements:
 1. Clone this repository to your local machine:
 
    ```shell
-   git clone https://github.com/YourUsername/Attendance-Tracker.git
+   git clone https://github.com/Holison18/10--python-project/tree/a93fb11c2eb0d2ded28b8b2800918dc6785c06d4/attendanceTracker
    ```
 
 2. Change to the project directory:
 
    ```shell
-   cd Attendance-Tracker
+   cd AttendanceTracker
    ```
 
 3. Install the required Python libraries:
@@ -95,9 +93,4 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 5. Open a Pull Request on the original repository.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
-
-You should replace the placeholder sections (e.g., `YourUsername`, `feature/your-feature-name`, and `LICENSE`) with your actual information and descriptions. This README template provides a structured way to present your project to users and potential contributors on GitHub.
