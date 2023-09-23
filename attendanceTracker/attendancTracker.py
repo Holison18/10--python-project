@@ -4,10 +4,10 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # loading the excel book
-book = openpyxl.load_workbook('data.xlsx')
+book = openpyxl.load_workbook(r'C:\Users\Algorithms\Desktop\Holison\Projects\Python\10+ python project\attendanceTracker\data.xlsx')
 
 # choose the sheet
-sheet = book['sheet1']
+sheet = book['Sheet1']
 
 # counting number of rows/students
 row = sheet.max_row
@@ -37,7 +37,7 @@ m3 = "warning!!! you can take only one more day leave for COE 356 class"
 
 # define a function to save the excel sheet
 def savefile():
-    book.save(r'data.xlsx')
+    book.save(r'C:\Users\Algorithms\Desktop\Holison\Projects\Python\10+ python project\attendanceTracker\data.xlsx')
     print("Saved!")
 
 # create a function to take user password
@@ -99,17 +99,17 @@ def track(no_of_days,row_num,b):
     for student in range(0,len(row_num)):
         # if total of number of leaves == warning threshol
         if no_of_days[student] == 2:
-            if b is 1:
+            if b == 1:
                 list_of_studentsTR.append(sheet.cell(row=row_num[student],column=2).value)
                 mailStudent(list_of_studentsTR,m1)
-            elif b is 2:
+            elif b == 2:
                 list_of_studentsTR.append(sheet.cell(row=row_num[student],column=2).value)
                 mailStudent(list_of_studentsTR,m2)
             else:
                 list_of_studentsTR.append(sheet.cell(row=row_num[student],column=2).value)
                 mailStudent(list_of_studentsTR,m3)
         elif no_of_days[student] > 2:
-            if b is 1:
+            if b == 1:
                 # adding roll no
                 list2 = list2+str(sheet.cell(row=row_num[student], column=1).value)
   
@@ -117,7 +117,7 @@ def track(no_of_days,row_num,b):
                 listofLack.append(sheet.cell(row=row_num[student], column=2).value)
                 subject = "COE 354"  # subject based on the code number
   
-            elif b is 2:
+            elif b == 2:
                 list2 = list2+str(sheet.cell(row=row_num[student], column=1).value)
                 listofLack.append(sheet.cell(row=row_num[student], column=2).value)
                 subject = "COE 321"
