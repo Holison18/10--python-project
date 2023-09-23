@@ -28,7 +28,7 @@ list2 = []
 listofLack = []
 
 # staff mail id
-staff_mail = ['kobinaakofiholison@gmail.com']
+staff_mail = ['kobinaholison2002@gmail.com']
 
 # define a function to save the excel sheet
 def savefile():
@@ -41,9 +41,30 @@ def get_email_password():
     return password
 
 # create a function to mail student
-def mailStudent(li,msg):
+def mailStudent(listofmails,msg):
     from_id = "kobinaakofiholison@gmail.com"
     password = get_email_password() # get password from user
+
+    # use smtplib to login to the staff email
+    s = smtplib.SMTP('smtp.gmail.com',587)
+    s.starttls()
+    s.login(from_id,password)
+
+    # for each student to warn send an email
+    for email in range(0,len(listofmails)):
+        to_id = listofmails[email] 
+        message = MIMEMultipart()
+        message['Subject'] = 'Attendance Report'
+        message.attach(MIMEText(msg,'plain'))
+        content = message.as_string()
+        s.sendmail(from_id,to_id,content)
+        s.quit()
+    print("Message sent successfully!")
+
+# create a function to send staff a message
+def staffMail(mail_id,msg):
+    from_id = 'kobinaakofiholison@gmail.com'
+    password = get_email_password()
 
 # create a function to track attendance
 def track(no_of_days,row_num,b):
