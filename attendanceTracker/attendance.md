@@ -1,4 +1,3 @@
-Certainly! Here's a template for a README.md file that you can use for your GitHub repository to document your code:
 
 ```markdown
 # Attendance Tracker
