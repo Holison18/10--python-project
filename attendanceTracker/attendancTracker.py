@@ -27,7 +27,12 @@ list2 = []
 # list of roll numbers with lack of attendance
 listofLack = []
 
-staff_mail
+# staff mail id
+staff_mail = ['akofiholisonkobina@gmail.com']
+
 # define a function to save the excel sheet
 def savefile():
-    book.save
+    book.save(r'data.xlsx')
+    print("Saved!")
+
+# create a function to track attendance
