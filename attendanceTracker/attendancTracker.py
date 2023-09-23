@@ -66,6 +66,22 @@ def staffMail(mail_id,msg):
     from_id = 'kobinaakofiholison@gmail.com'
     password = get_email_password()
 
+    # use smtplib to login into email
+    s = smtplib.SMTP('smtp.gmail.com',587)
+    s.starttls() # start ttls
+    s.login(from_id,password) # login to the email of the sender
+
+    # send message to staff
+    message = MIMEMultipart()
+    message['Subject'] = 'Lack of attendance report' # write mail subject
+    message.attach(MIMEText(msg,'plain')) # add message attachment
+    content = message.as_string()
+
+    # to id
+    to_id = mail_id
+    s.sendmail(from_id,to_id,content) # send message from sender to the staff
+    s.quit() # quit smtp
+
 # create a function to track attendance
 def track(no_of_days,row_num,b):
 
