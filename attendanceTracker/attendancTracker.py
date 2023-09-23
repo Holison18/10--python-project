@@ -28,12 +28,17 @@ list2 = []
 listofLack = []
 
 # staff mail id
-staff_mail = ['akofiholisonkobina@gmail.com']
+staff_mail = ['kobinaakofiholison@gmail.com']
 
 # define a function to save the excel sheet
 def savefile():
     book.save(r'data.xlsx')
     print("Saved!")
+
+
+# create a function to mail student
+def mailStudent(li,msg):
+    pass
 
 # create a function to track attendance
 def track(no_of_days,row_num,b):
