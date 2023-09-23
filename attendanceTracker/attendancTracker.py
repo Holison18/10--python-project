@@ -30,6 +30,11 @@ listofLack = []
 # staff mail id
 staff_mail = ['kobinaholison2002@gmail.com']
 
+# Warning messages
+m1 = "warning!!! you can take only one more day leave for COE 354 class"
+m2 = "warning!!! you can take only one more day leave for COE 321 class"
+m3 = "warning!!! you can take only one more day leave for COE 356 class"
+
 # define a function to save the excel sheet
 def savefile():
     book.save(r'data.xlsx')
@@ -81,6 +86,7 @@ def staffMail(mail_id,msg):
     to_id = mail_id
     s.sendmail(from_id,to_id,content) # send message from sender to the staff
     s.quit() # quit smtp
+    print("Staff mail send successfully!")
 
 # create a function to track attendance
 def track(no_of_days,row_num,b):
@@ -93,6 +99,42 @@ def track(no_of_days,row_num,b):
     for student in range(0,len(row_num)):
         # if total of number of leaves == warning threshol
         if no_of_days[student] == 2:
-            pass
+            if b is 1:
+                list_of_studentsTR.append(sheet.cell(row=row_num[student],column=2).value)
+                mailStudent(list_of_studentsTR,m1)
+            elif b is 2:
+                list_of_studentsTR.append(sheet.cell(row=row_num[student],column=2).value)
+                mailStudent(list_of_studentsTR,m2)
+            else:
+                list_of_studentsTR.append(sheet.cell(row=row_num[student],column=2).value)
+                mailStudent(list_of_studentsTR,m3)
         elif no_of_days[student] > 2:
-            pass
+            if b is 1:
+                # adding roll no
+                list2 = list2+str(sheet.cell(row=row_num[student], column=1).value)
+  
+                # student mail_id appending
+                listofLack.append(sheet.cell(row=row_num[student], column=2).value)
+                subject = "COE 354"  # subject based on the code number
+  
+            elif b is 2:
+                list2 = list2+str(sheet.cell(row=row_num[student], column=1).value)
+                listofLack.append(sheet.cell(row=row_num[student], column=2).value)
+                subject = "COE 321"
+  
+            else:
+                list2 = list2+str(sheet.cell(row=row_num[student], column=1).value)
+                listofLack.append(sheet.cell(row=row_num[student], column=2).value)
+                subject = "COE 356"
+        
+        # if treshold is crossed modify the message
+        if list2 != "" and len(listofLack) != 0:
+            # message for student
+            msg1 = "you have lack of attendance in " + subject + " !!!"
+  
+            # message for staff
+            msg2 = "the following students have lack of attendance in your subject : "+list2
+  
+            mailStudent(listofLack, msg1)  # mail to students
+            staff_id = staff_mail  
+            staffMail(staff_id, msg2)  # mail to staff
