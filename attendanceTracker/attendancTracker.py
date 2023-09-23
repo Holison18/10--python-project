@@ -21,6 +21,13 @@ columns  = sheet.max_column
 # create a list of students to remind
 list_of_studentsTR = []
 
+# to concatenate list of roll numbers with lack of attendance
+list2 = []
+
+# list of roll numbers with lack of attendance
+listofLack = []
+
+staff_mail
 # define a function to save the excel sheet
 def savefile():
     book.save
