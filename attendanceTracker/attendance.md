@@ -1,4 +1,3 @@
-```markdown
 # Attendance Tracker
 
 ## Overview
@@ -93,4 +92,4 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 5. Open a Pull Request on the original repository.
 
-```
+
