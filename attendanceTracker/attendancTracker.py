@@ -35,10 +35,15 @@ def savefile():
     book.save(r'data.xlsx')
     print("Saved!")
 
+# create a function to take user password
+def get_email_password():
+    password = input("Enter email password: ")
+    return password
 
 # create a function to mail student
 def mailStudent(li,msg):
-    pass
+    from_id = "kobinaakofiholison@gmail.com"
+    password = get_email_password() # get password from user
 
 # create a function to track attendance
 def track(no_of_days,row_num,b):
