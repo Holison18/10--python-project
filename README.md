@@ -29,6 +29,8 @@ In this repository, you'll find a diverse range of Python projects that cover va
 
 3. **Notification Application**: Build an application that sends desktop notifications for important events or reminders.
 
+4. **Attendance Tracker Application**: Build an application to the attendance of students for a subject.
+
 ### Intermediate and Advanced Projects (Coming Soon)
 
 I'm currently working on more intermediate and advanced-level projects, so stay tuned for updates! Here are some projects in the pipeline:
