@@ -36,3 +36,16 @@ def savefile():
     print("Saved!")
 
 # create a function to track attendance
+def track(no_of_days,row_num,b):
+
+    global staff_mail
+    global list2
+    global listofLack
+
+    # loop through the list students row_num
+    for student in range(0,len(row_num)):
+        # if total of number of leaves == warning threshol
+        if no_of_days[student] == 2:
+            pass
+        elif no_of_days[student] > 2:
+            pass
