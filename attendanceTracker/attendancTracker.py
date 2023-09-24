@@ -1,3 +1,4 @@
+#This is an attendance tracker application written in python programming language
 import openpyxl
 import smtplib
 from email.mime.multipart import MIMEMultipart
