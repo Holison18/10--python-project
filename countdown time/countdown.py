@@ -12,3 +12,8 @@ def countDown(t:int):
         t-=1
     print("Fire in the hole!!!")
 
+print("\t\t\t\nTimer")
+time_in_secs = int(input("Enter time is second: "))
+
+# call the countdown function
+countDown(time_in_secs)
