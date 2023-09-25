@@ -9,11 +9,12 @@ def countDown(t:int):
         mins,secs = divmod(t,60)
         timer = "{:02d}:{:02d}".format(mins,secs)
         print(timer,end="\r")
+        time.sleep(1)
         t-=1
     print("Fire in the hole!!!")
 
-print("\t\t\t\nTimer")
-time_in_secs = int(input("Enter time is second: "))
+print("\n\t\t\tTimer")
+time_in_secs = int(input("\n\nEnter time is second: "))
 
 # call the countdown function
 countDown(time_in_secs)
