@@ -11,7 +11,7 @@ def countDown(t:int):
         print(timer,end="\r")
         time.sleep(1)
         t-=1
-    print("Fire in the hole!!!")
+    print("Adom!!!")
 
 print("\n\t\t\tTimer")
 time_in_secs = int(input("\n\nEnter time is second: "))
