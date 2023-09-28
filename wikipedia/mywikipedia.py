@@ -9,7 +9,7 @@ def search(to_search,number_of_sentences):
         soup = BeautifulSoup(result,features="html.parser")
         lis = soup.find_all('li')
         for item in lis:
-            print(result)
+            print(item.text)
     except wikipedia.exceptions.WikipediaException as e:
         print(f"An Error occurred: {e}")
 
