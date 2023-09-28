@@ -3,8 +3,3 @@ Time: 16:33
 Phone Number: +233541812762
 Message: You're so brilliant
 
-Date: 28/9/2023
-Time: 16:39
-Phone Number: +233594881993
-Message: I love you so much bum, automated this message with python
---------------------
