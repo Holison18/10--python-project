@@ -21,7 +21,7 @@ In this repository, you'll find a diverse range of Python projects that cover va
 
 ## Projects
 
-### Beginner Projects
+### Projects
 
 1. **21 Number Game**: A simple game where a player and a computer take turns choosing numbers to reach a target sum of 21.
 
@@ -31,22 +31,11 @@ In this repository, you'll find a diverse range of Python projects that cover va
 
 4. **Attendance Tracker Application**: Build an application to the attendance of students for a subject.
 
-### Intermediate and Advanced Projects (Coming Soon)
+5. **Countdown timer**: A python program the takes time in seconds and counts down to zero
 
-I'm currently working on more intermediate and advanced-level projects, so stay tuned for updates! Here are some projects in the pipeline:
+6. **WhatsApp Automation**: Create a program to send whatsapp messages at some scheduled time
 
-- **Web Scraper**: Develop a web scraper to extract data from websites and save it in a structured format.
-
-- **Weather App**: Create a program that fetches and displays weather information based on user input or location.
-
-- **Blog Website**: Build a web-based blog platform with user authentication and CRUD operations.
-
-- **Machine Learning Model**: Develop a machine learning model for tasks like image classification, sentiment analysis, or recommendation systems.
-
-- **E-commerce Website**: Design a full-fledged e-commerce website with features like product listings, shopping carts, and payments.
-
-- **Chat Application**: Create a real-time chat application with user authentication and message persistence.
-
+7. **Wikipedia Search**: A python program to search on wikipedia
 ## Getting Started
 
 Each project in this repository will have its own dedicated folder with a README file that provides detailed instructions on how to set up and run the application. You'll find step-by-step guides and code explanations to help you understand the project better.
