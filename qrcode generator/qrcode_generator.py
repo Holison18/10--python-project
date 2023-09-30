@@ -2,7 +2,7 @@
 import qrcode
 
 # define a function to create qr code when user enters message or url
-def qrGenerator(message_url,Version=1,Box_size=40,Border=3,Fit=1,Fill_color="black",Back_color="white",saveas="img.png"):
+def qrGenerator(message_url,Version=1,Box_size=40,Border=3,Fit=True,Fill_color="black",Back_color="white",saveas="img.png"):
     # set the features of the qr code
     features = qrcode.QRCode(version = Version, box_size = Box_size, border = Border)
 
@@ -16,7 +16,15 @@ def qrGenerator(message_url,Version=1,Box_size=40,Border=3,Fit=1,Fill_color="bla
 
     print("QR code generated check folder for qr!")
 
-# define a main function
-def main():
-    print("\n\n\t\t\tGENERATE QR")
-    
+print("\n\n\t\t\tGENERATE QR")
+message = input("Message/URL: ")
+version = int(input("Version: "))
+box_size = float(input("Box_size: "))
+border = float(input("Border: "))
+fit = bool(input("Fit (True/False): "))
+fill_color = input("Fill Color: ")
+background = input("Background color: ")
+saveas = input("Save QR as: ")
+
+# call the qrGenerator function
+qrGenerator(message,version,box_size,border,fit,fill_color.lower(),background.lower(),saveas)
