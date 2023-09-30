@@ -13,5 +13,10 @@ def qrGenerator(message_url,Version=1,Box_size=40,Border=3,Fit=1,Fill_color="bla
 
     generate_image = features.make_image(fill_color = Fill_color ,back_color = Back_color )
     generate_image.save(saveas)
-    
+
     print("QR code generated check folder for qr!")
+
+# define a main function
+def main():
+    print("\n\n\t\t\tGENERATE QR")
+    
