@@ -36,6 +36,8 @@ In this repository, you'll find a diverse range of Python projects that cover va
 6. **WhatsApp Automation**: Create a program to send whatsapp messages at some scheduled time
 
 7. **Wikipedia Search**: A python program to search on wikipedia
+
+8. **QR Code generator**: Generate a QR code with python
 ## Getting Started
 
 Each project in this repository will have its own dedicated folder with a README file that provides detailed instructions on how to set up and run the application. You'll find step-by-step guides and code explanations to help you understand the project better.
